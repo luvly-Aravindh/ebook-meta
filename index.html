@@ -1011,8 +1011,17 @@ ATTENTION: EXPORTERS LOSING DEALS BECAUSE COMPETITORS HAVE BETTER MARKET INTELLI
         <input name="email" type="email" id="email" placeholder="Email"
           class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#22c55e]" required />
 
-        <input name="phone" type="tel" id="phone" placeholder="Mobile"
-          class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#22c55e]" required />
+        <input 
+  name="phone" 
+  type="tel" 
+  id="phone" 
+  placeholder="Mobile"
+  maxlength="10"
+  class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#22c55e]" 
+  required 
+  oninput="validatePhone(this)"
+/>
+<p id="error" style="color:red; font-size:12px;"></p>
 
         <select name="business_type" id="business"
           class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#22c55e]" required>
@@ -1099,6 +1108,21 @@ ATTENTION: EXPORTERS LOSING DEALS BECAUSE COMPETITORS HAVE BETTER MARKET INTELLI
   </div>
 </footer>
 <!--  -->
+
+<script>
+function validatePhone(input) {
+  const value = input.value.replace(/[^0-9]/g, '');
+  input.value = value;
+
+  const error = document.getElementById("error");
+
+  if (value.length < 10) {
+    error.innerText = "Mobile number must be 10 digits";
+  } else {
+    error.innerText = "";
+  }
+}
+</script>
 
 
   <!-- JS -->
