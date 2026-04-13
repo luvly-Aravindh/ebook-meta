@@ -110,7 +110,7 @@ Business Type: $business
     if (mail($to, $subject, $message, $headers)) {
 
         // ✅ Redirect after success
-        header("Location: https://in.thedollarbusiness.com/book-a-demo/R2V0Tm9z");
+        header("Location: https://in.thedollarbusiness.com/ebook-meta-thank-you");
         exit;
 
     } else {
